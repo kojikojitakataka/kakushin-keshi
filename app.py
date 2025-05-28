@@ -1,21 +1,23 @@
 import streamlit as st
-from PIL import Image
+import pandas as pd
 
-st.set_page_config(page_title="賭神 - 競馬AI予想", layout="centered")
-
+# ロゴ表示（images/logo.png が必要です）
 st.image("images/logo.png", width=200)
 
-st.title("🐎 賭神 - AI競馬予想サイト")
-st.markdown("精度×スピード×華やかさ。回収率100%目指すなら《賭神》。")
+st.title("賭神｜競馬・競艇AI予想アプリ")
 
-# 予想表示（仮の例）
-st.subheader("🎯 今日のAI予想（例）")
-st.write("◎ 本命：5枠10番\n○ 対抗：7枠13番\n▲ 単穴：1枠2番")
+# アップロードエリア
+uploaded_file = st.file_uploader("CSVファイルをアップロードしてください", type=["csv"])
+if uploaded_file:
+    df = pd.read_csv(uploaded_file)
+    st.write("アップロードされたデータ：")
+    st.dataframe(df)
 
-# 実績画像（あれば）
-st.subheader("🔥 実績サンプル")
-st.image("images/sample_result.png", use_column_width=True)
-
-# フッター
-st.markdown("---")
-st.caption("© 2025 賭神 - AI競馬予想")
+# ダミー予想表示
+st.subheader("🔮 AI予想（仮）")
+sample_predictions = pd.DataFrame({
+    "レース": ["京都11R", "中山10R", "福島9R"],
+    "買い目": ["3連単 1-2-3", "馬連 4-6", "ワイド 2-5"],
+    "的中率": ["78%", "66%", "59%"]
+})
+st.table(sample_predictions)
