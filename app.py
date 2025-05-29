@@ -8,11 +8,8 @@ st.set_page_config(
     layout="centered",
 )
 
-# --- タイトル表示 ---
+# --- タイトル表示（画像は使わずテキストのみ） ---
 st.markdown("### 🏆 AI競馬予想 - 賭神")
-
-# --- ロゴの代わりにテキスト表示（画像なし対応） ---
-st.markdown("#### 📌 ロゴ画像が見つかりませんでした（images/logo.png）")
 
 st.markdown("---")
 
@@ -28,7 +25,7 @@ st.markdown("""
 
 st.markdown("---")
 
-# --- 実績例（ダミー） ---
+# --- 的中実績（サンプル） ---
 st.subheader("📊 的中実績（例）")
 data = {
     "日付": ["5/25", "5/26", "5/27"],
