@@ -1,4 +1,4 @@
-streamlit as st
+import streamlit as st
 import pandas as pd
 import random
 from datetime import datetime
@@ -8,7 +8,6 @@ st.title("🐎 賭神 - 競馬AI予想アプリ")
 
 # 出馬表URLから取得
 @st.cache_data
-
 def fetch_race_table(url):
     try:
         df = pd.read_html(url)[0]  # Netkeiba出馬表の1つ目のテーブルを取得
